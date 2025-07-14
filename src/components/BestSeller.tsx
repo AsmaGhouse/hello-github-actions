@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
 
 function BestSeller() {
   const { products } = useContext(ShopContext);
-  const [bestSeller, setBestSeller] = useState();
+  const [bestSeller, setBestSeller] = useState([]);
   useEffect(() => {
-    const bestProduct = products.filter((item) => item.bestSeller);
+    const bestProduct = products.filter((item) => item.bestseller);
     setBestSeller(bestProduct.slice(0, 5));
   }, []);
   return (
@@ -23,7 +23,7 @@ function BestSeller() {
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4
       lg:grid-cols-5 gap-4 gap-y-6"
       >
-        {bestSeller.map((item, index) => (
+        {bestSeller.map((item: any, index) => (
           <ProductItem
             key={index}
             id={item._id}

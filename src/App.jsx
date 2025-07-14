@@ -10,6 +10,7 @@ import Collection from "./pages/Collection";
 import About from "./pages/About";
 import Navbar from "./components/navbar";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <div className="px-4 sm:px[5vw] md:px[7vw] lg:[9vw]">
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Home />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
